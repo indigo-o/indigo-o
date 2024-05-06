@@ -8,14 +8,13 @@ export const metadata: Metadata = {
   authors: [{name: "Indigo", url: ""}],
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
+export default function RootLayout(
+  {children}: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body suppressHydrationWarning>{children}</body>
     </html>
   );
 }
