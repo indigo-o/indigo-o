@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import { useEffect } from "react";
 import styles from "./page.module.scss";
@@ -8,7 +9,7 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 export default function Home() {
-  const setLenis = useStore((state: any) =>state.setLenis)
+  const setLenis = useStore((state: any) => state.setLenis)
   useEffect(() => {
     const lenis = new Lenis();
     lenis.on("scroll", ScrollTrigger.update);
@@ -19,6 +20,7 @@ export default function Home() {
     gsap.ticker.lagSmoothing(0);
     return () => {
       lenis.destroy();
+      setLenis(null)
     };
   }, []);
 
